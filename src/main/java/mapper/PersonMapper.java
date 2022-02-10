@@ -1,7 +1,14 @@
 package mapper;
 
-import model.*;
-import org.mapstruct.*;
+import model.EnrichedPerson;
+import model.PersonDomain;
+import model.PersonDomainWithAltNames;
+import model.PersonDomainWithConstantValue;
+import model.PersonRequest;
+import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
+import org.mapstruct.Mappings;
+import org.mapstruct.Named;
 import org.mapstruct.factory.Mappers;
 
 import java.math.BigDecimal;

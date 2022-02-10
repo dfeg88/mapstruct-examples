@@ -33,7 +33,7 @@ class MapperExamplesTest {
 
     @Test
     void mapsPersonRequestToEnrichedPerson() {
-        final EnrichedPerson actual = mapperExamples.toEnricherPerson(personRequest);
+        final EnrichedPerson actual = mapperExamples.toEnrichedPerson(personRequest);
         final EnrichedPerson expected = new EnrichedPerson("Daniel", "Fegan", 33, 184, 6.04);
         assertThat(actual).isEqualTo(expected);
     }

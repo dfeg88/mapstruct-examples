@@ -13,7 +13,7 @@ public class MapperExamples {
         return PERSON_MAPPER.toPersonDomainWithAltNames(personRequest);
     }
 
-    public EnrichedPerson toEnricherPerson(final PersonRequest personRequest) {
+    public EnrichedPerson toEnrichedPerson(final PersonRequest personRequest) {
         return PERSON_MAPPER.toEnrichedPerson(personRequest);
     }
 

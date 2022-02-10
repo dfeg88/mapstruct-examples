@@ -8,7 +8,7 @@ public class Application {
 
         System.out.println(mapperExamples.toPersonDomain(personRequest));
         System.out.println(mapperExamples.toPersonDomainWithAltNames(personRequest));
-        System.out.println(mapperExamples.toEnricherPerson(personRequest));
+        System.out.println(mapperExamples.toEnrichedPerson(personRequest));
     }
 
 }
