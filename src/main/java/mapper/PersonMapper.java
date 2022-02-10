@@ -1,9 +1,6 @@
 package mapper;
 
-import model.EnrichedPerson;
-import model.PersonDomain;
-import model.PersonDomainWithAltNames;
-import model.PersonRequest;
+import model.*;
 import org.mapstruct.*;
 import org.mapstruct.factory.Mappers;
 
@@ -29,6 +26,9 @@ public interface PersonMapper {
         @Mapping(source = "heightInCentimeters", target = "heightInFeet", qualifiedByName = "getHeightInFeet"),
     })
     EnrichedPerson toEnrichedPerson(PersonRequest personRequest);
+
+    @Mapping(target = "someValue", constant = "hardcodedValue")
+    PersonDomainWithConstantValue toPersonDomainWithConstantValue(PersonRequest personRequest);
 
     @Named("getFirstName")
     default String getFirstName(String name) {

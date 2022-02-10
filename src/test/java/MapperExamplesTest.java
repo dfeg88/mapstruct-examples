@@ -1,7 +1,4 @@
-import model.EnrichedPerson;
-import model.PersonDomain;
-import model.PersonDomainWithAltNames;
-import model.PersonRequest;
+import model.*;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
@@ -38,6 +35,19 @@ class MapperExamplesTest {
     void mapsPersonRequestToEnrichedPerson() {
         final EnrichedPerson actual = mapperExamples.toEnricherPerson(personRequest);
         final EnrichedPerson expected = new EnrichedPerson("Daniel", "Fegan", 33, 184, 6.04);
+        assertThat(actual).isEqualTo(expected);
+    }
+
+    @Test
+    void mapsPersonRequestToPersonDomainWithConstantValue() {
+        final PersonDomainWithConstantValue actual = mapperExamples.toPersonDomainWithConstantValue(personRequest);
+        final PersonDomainWithConstantValue expected = new PersonDomainWithConstantValue(
+            "Daniel Fegan",
+            33,
+            184,
+            "hardcodedValue"
+        );
+
         assertThat(actual).isEqualTo(expected);
     }
 

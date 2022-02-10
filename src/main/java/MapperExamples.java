@@ -1,8 +1,5 @@
 import mapper.PersonMapper;
-import model.EnrichedPerson;
-import model.PersonDomain;
-import model.PersonDomainWithAltNames;
-import model.PersonRequest;
+import model.*;
 
 public class MapperExamples {
 
@@ -18,6 +15,10 @@ public class MapperExamples {
 
     public EnrichedPerson toEnricherPerson(final PersonRequest personRequest) {
         return PERSON_MAPPER.toEnrichedPerson(personRequest);
+    }
+
+    public PersonDomainWithConstantValue toPersonDomainWithConstantValue(final PersonRequest personRequest) {
+        return PERSON_MAPPER.toPersonDomainWithConstantValue(personRequest);
     }
 
 }
