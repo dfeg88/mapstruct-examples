@@ -1,24 +1,19 @@
 import mapper.PersonMapper;
-import model.*;
+import model.EnrichedPerson;
+import model.PersonDomain;
+import model.PersonDomainWithAltNames;
+import model.PersonDomainWithConstantValue;
+import model.PersonRequest;
+
+import java.util.function.Function;
 
 public class MapperExamples {
 
     private static final PersonMapper PERSON_MAPPER = PersonMapper.INSTANCE;
 
-    public PersonDomain toPersonDomain(final PersonRequest personRequest) {
-        return PERSON_MAPPER.toPersonDomain(personRequest);
-    }
-
-    public PersonDomainWithAltNames toPersonDomainWithAltNames(final PersonRequest personRequest) {
-        return PERSON_MAPPER.toPersonDomainWithAltNames(personRequest);
-    }
-
-    public EnrichedPerson toEnrichedPerson(final PersonRequest personRequest) {
-        return PERSON_MAPPER.toEnrichedPerson(personRequest);
-    }
-
-    public PersonDomainWithConstantValue toPersonDomainWithConstantValue(final PersonRequest personRequest) {
-        return PERSON_MAPPER.toPersonDomainWithConstantValue(personRequest);
-    }
+    public Function<PersonRequest, PersonDomain> toPersonDomain = PERSON_MAPPER::toPersonDomain;
+    public Function<PersonRequest, PersonDomainWithAltNames> toPersonDomainWithAltNames = PERSON_MAPPER::toPersonDomainWithAltNames;
+    public Function<PersonRequest, EnrichedPerson> toEnrichedPerson = PERSON_MAPPER::toEnrichedPerson;
+    public Function<PersonRequest, PersonDomainWithConstantValue> toPersonDomainWithConstantValue = PERSON_MAPPER::toPersonDomainWithConstantValue;
 
 }

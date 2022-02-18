@@ -1,7 +1,13 @@
-import model.*;
+import model.EnrichedPerson;
+import model.PersonDomain;
+import model.PersonDomainWithAltNames;
+import model.PersonDomainWithConstantValue;
+import model.PersonRequest;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
+
+import java.util.Arrays;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -14,33 +20,44 @@ class MapperExamplesTest {
     @BeforeAll
     void setup() {
         mapperExamples = new MapperExamples();
-        personRequest = new PersonRequest("Daniel Fegan", 33, 184);
+        personRequest = new PersonRequest(
+            "Daniel Fegan",
+            33,
+            184,
+            Arrays.asList("Bob", "Geoff")
+        );
     }
 
     @Test
     void mapsPersonRequestToPersonDomain() {
-        final PersonDomain actual = mapperExamples.toPersonDomain(personRequest);
-        final PersonDomain expected = new PersonDomain("Daniel Fegan", 33, 184);
+        final PersonDomain actual = mapperExamples.toPersonDomain.apply(personRequest);
+        final PersonDomain expected = new PersonDomain(
+            "Daniel Fegan",
+            33,
+            184,
+            Arrays.asList("Bob", "Geoff")
+        );
+
         assertThat(actual).isEqualTo(expected);
     }
 
     @Test
     void mapsPersonRequestToPersonDomainWithAltNames() {
-        final PersonDomainWithAltNames actual = mapperExamples.toPersonDomainWithAltNames(personRequest);
+        final PersonDomainWithAltNames actual = mapperExamples.toPersonDomainWithAltNames.apply(personRequest);
         final PersonDomainWithAltNames expected = new PersonDomainWithAltNames("Daniel Fegan", 33, 184);
         assertThat(actual).isEqualTo(expected);
     }
 
     @Test
     void mapsPersonRequestToEnrichedPerson() {
-        final EnrichedPerson actual = mapperExamples.toEnrichedPerson(personRequest);
+        final EnrichedPerson actual = mapperExamples.toEnrichedPerson.apply(personRequest);
         final EnrichedPerson expected = new EnrichedPerson("Daniel", "Fegan", 33, 184, 6.04);
         assertThat(actual).isEqualTo(expected);
     }
 
     @Test
     void mapsPersonRequestToPersonDomainWithConstantValue() {
-        final PersonDomainWithConstantValue actual = mapperExamples.toPersonDomainWithConstantValue(personRequest);
+        final PersonDomainWithConstantValue actual = mapperExamples.toPersonDomainWithConstantValue.apply(personRequest);
         final PersonDomainWithConstantValue expected = new PersonDomainWithConstantValue(
             "Daniel Fegan",
             33,

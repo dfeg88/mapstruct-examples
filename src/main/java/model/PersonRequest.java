@@ -1,5 +1,7 @@
 package model;
 
-public record PersonRequest(String name, int age, double heightInCentimeters) {
+import java.util.List;
+
+public record PersonRequest(String name, int age, double heightInCentimeters, List<String> siblings) {
 
 }

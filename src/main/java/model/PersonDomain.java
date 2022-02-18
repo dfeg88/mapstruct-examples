@@ -1,5 +1,10 @@
 package model;
 
-public record PersonDomain(String name, int age, double heightInCentimeters) {
+import java.util.List;
 
-}
+public record PersonDomain(
+    String name,
+    int age,
+    double heightInCentimeters,
+    List<String> siblings
+) { }
