@@ -7,7 +7,6 @@ import model.PersonDomainWithConstantValue;
 import model.PersonRequest;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
-import org.mapstruct.Mappings;
 import org.mapstruct.Named;
 import org.mapstruct.ReportingPolicy;
 import org.mapstruct.factory.Mappers;
@@ -22,17 +21,13 @@ public interface PersonMapper {
 
     PersonDomain toPersonDomain(PersonRequest personRequest);
 
-    @Mappings({
-        @Mapping(source = "age", target = "personsAge"),
-        @Mapping(source = "name", target = "fullName")
-    })
+    @Mapping(source = "age", target = "personsAge")
+    @Mapping(source = "name", target = "fullName")
     PersonDomainWithAltNames toPersonDomainWithAltNames(PersonRequest personRequest);
 
-    @Mappings({
-        @Mapping(source = "name", target = "firstName", qualifiedByName = "getFirstName"),
-        @Mapping(source = "name", target = "lastName", qualifiedByName = "getLastName"),
-        @Mapping(source = "heightInCentimeters", target = "heightInFeet", qualifiedByName = "getHeightInFeet"),
-    })
+    @Mapping(source = "name", target = "firstName", qualifiedByName = "getFirstName")
+    @Mapping(source = "name", target = "lastName", qualifiedByName = "getLastName")
+    @Mapping(source = "heightInCentimeters", target = "heightInFeet", qualifiedByName = "getHeightInFeet")
     EnrichedPerson toEnrichedPerson(PersonRequest personRequest);
 
     @Mapping(target = "someValue", constant = "hardcodedValue")

@@ -15,17 +15,16 @@ import static org.assertj.core.api.Assertions.assertThat;
 class MapperExamplesTest {
 
     private MapperExamples mapperExamples;
-    private PersonRequest personRequest;
+    private static final PersonRequest personRequest = new PersonRequest(
+        "Daniel Fegan",
+        33,
+        184,
+        Arrays.asList("Bob", "Geoff")
+    );;
 
     @BeforeAll
     void setup() {
         mapperExamples = new MapperExamples();
-        personRequest = new PersonRequest(
-            "Daniel Fegan",
-            33,
-            184,
-            Arrays.asList("Bob", "Geoff")
-        );
     }
 
     @Test
