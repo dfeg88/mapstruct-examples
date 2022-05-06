@@ -1,3 +1,4 @@
+import model.EnrichedPerson;
 import model.PersonRequest;
 
 import static java.util.Arrays.asList;
@@ -15,5 +16,14 @@ public class Application {
         );
 
         examples.forEach(System.out::println);
+
+        final EnrichedPerson enrichedPerson = EnrichedPerson.builder()
+            .firstName("yo")
+            .age(30)
+            .heightInCentimeters(20)
+            .heightInFeet(200)
+            .build();
+
+        System.out.println(enrichedPerson);
     }
 }
